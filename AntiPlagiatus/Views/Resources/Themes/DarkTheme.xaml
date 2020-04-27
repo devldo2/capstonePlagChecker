@@ -1,0 +1,40 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AntiPlagiatus.Views.Resources.Themes">
+
+    <ImageBrush x:Key="AccountBackgroundBrush" ImageSource="ms-appx:///Assets/loginDark.png"
+                Stretch="UniformToFill"/>
+
+    <SolidColorBrush x:Key="White50Brush" Color="White" Opacity="0.7"/>
+    <SolidColorBrush x:Key="LightGrayBrush" Color="#bababa" Opacity="0.6"/>
+    <SolidColorBrush x:Key="BaseForegroundBrush" Color="White"/>
+    <SolidColorBrush x:Key="BaseInvertForegroundBrush" Color="Black"/>
+
+    <SolidColorBrush x:Key="PaneBackgroundBrush" Color="#940000"/>
+    <SolidColorBrush x:Key="AccentBrush" Color="#d10000"/>
+    <SolidColorBrush x:Key="Accent20Brush" Color="#ff0000" Opacity="0.2"/>
+    <SolidColorBrush x:Key="ControlHeaderBrush" Color="#940000"/>
+    <SolidColorBrush x:Key="ControlBackgroundBrush" Color="#d6d6d6"/>
+    <SolidColorBrush x:Key="AccentLightBrush" Color="#d10000"/>
+    <SolidColorBrush x:Key="AccentLight20Brush" Color="#d10000" Opacity="0.2"/>
+    <SolidColorBrush x:Key="AccentLight80Brush" Color="#d10000" Opacity="0.8"/>
+    <SolidColorBrush x:Key="AccentDark50Brush" Color="#940000" Opacity="0.5"/>
+    <SolidColorBrush x:Key="AccentDarkBrush" Color="#940000"/>
+    <SolidColorBrush x:Key="DialogBackgroundBrush" Color="Black" Opacity="0.6"/>
+    <SolidColorBrush x:Key="DomainItemBorderBrush" Color="#3e403c"/>
+    <SolidColorBrush x:Key="EqualityBrush" Color="#F25F5C"/>
+    <SolidColorBrush x:Key="RewriteBrush" Color="#4FD5D6"/>
+    <SolidColorBrush x:Key="RadioButtonPointerOverBackgroundBrush" Color="Black" Opacity="0.2"/>
+    <SolidColorBrush x:Key="RadioButtonPressedBackgroundBrush" Color="Black" Opacity="0.2"/>
+    <SolidColorBrush x:Key="GridSplitterPointerOverForegroundBrush" Color="DarkGray" Opacity="0.8"/>
+    <SolidColorBrush x:Key="GridSplitterPressedForegroundBrush" Color="DarkGray" Opacity="0.8"/>
+    <SolidColorBrush x:Key="TopBottonPanelBackground" Color="#272121"/>
+    <SolidColorBrush x:Key="HistoryEmptyBackground" Color="#443737"/>
+    <SolidColorBrush x:Key="ViewPanelBackground" Color="#443737"/>
+
+    <Style TargetType="TextBlock">
+        <Setter Property="Foreground" Value="White"/>
+    </Style>
+
+</ResourceDictionary>

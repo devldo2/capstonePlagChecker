@@ -1,0 +1,121 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:customControls="using:AntiPlagiatus.Helpers.UIControls"
+                    xmlns:converters="using:AntiPlagiatus.Helpers.Converters"
+                    xmlns:models="using:AntiPlagiatus.Models">
+
+    <DataTemplate x:Key="ViewTemplate">
+        <Grid>
+            <Grid.Resources>
+                <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+            </Grid.Resources>
+            <SplitView x:Name="splitView" PaneBackground="{ThemeResource PaneBackgroundBrush}" Background="{ThemeResource AccentDarkBrush}"
+                       IsPaneOpen="True" OpenPaneLength="230" CompactPaneLength="48" DisplayMode="CompactOverlay">
+                <SplitView.Pane>
+                    <Grid>
+                        <Grid.Resources>
+                            <Style TargetType="FontIcon">
+                                <Setter Property="Width" Value="48"/>
+                                <Setter Property="HorizontalAlignment" Value="Center"/>
+                            </Style>
+                            <!--<Style TargetType="customControls:AdvancedRadioButton" BasedOn="{StaticResource RadioButtonStyle}"/>-->
+                            <Style TargetType="ToggleButton" BasedOn="{StaticResource ToggleButtonStyle}"/>
+                            <Style TargetType="Image">
+                                <Setter Property="Width" Value="30"/>
+                                <Setter Property="Margin" Value="10,0,0,0"/>
+                                <Setter Property="Stretch" Value="Uniform"/>
+                            </Style>
+                            <Style TargetType="SymbolIcon">
+                                <Setter Property="Margin" Value="10,0,0,0"/>
+                                <Setter Property="Width" Value="28"/>
+                                <Setter Property="Foreground" Value="White"/>
+                            </Style>
+                            <converters:SectionTypeToBooleanConverter x:Key="SectionTypeToBooleanConverter"/>
+                        </Grid.Resources>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="48"/>
+                            <RowDefinition Height="48"/>
+                            <RowDefinition Height="0"/>
+                            <RowDefinition Height="48"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="48"/>
+                            <RowDefinition Height="48"/>
+                        </Grid.RowDefinitions>
+
+                        <ToggleButton Background="Transparent" IsChecked="{Binding IsPaneOpen, ElementName=splitView, Mode=TwoWay}">
+                            <ToggleButton.Content>
+                                <FontIcon Glyph="&#xE700;"/>
+                            </ToggleButton.Content>
+                        </ToggleButton>
+
+                        <customControls:AdvancedRadioButton Grid.Row="1" IsChecked="{Binding SectionType, Mode=TwoWay, Converter={StaticResource SectionTypeToBooleanConverter}, ConverterParameter='Check'}" 
+                                                            GroupName="Tools" HorizontalAlignment="Stretch" Background="Transparent"
+                                                            Style="{StaticResource RadioButtonStyle}"
+                                                            CheckedBgBrush="{ThemeResource AccentLightBrush}"
+                                                            Command="{Binding ChangeSection}"
+                                                            CommandParameter="Check">
+                            <customControls:AdvancedRadioButton.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Add"/>
+                                    <TextBlock Text="{Binding CommonResources.CheckLabel, Source={StaticResource LocalizedStrings}}" 
+                                               Margin="18,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </customControls:AdvancedRadioButton.Content>
+                        </customControls:AdvancedRadioButton>
+
+                        <customControls:AdvancedRadioButton Grid.Row="3" GroupName="Tools" HorizontalAlignment="Stretch" Background="Transparent"
+                                                            IsChecked="{Binding SectionType, Mode=TwoWay, Converter={StaticResource SectionTypeToBooleanConverter}, ConverterParameter='History'}"
+                                                            Style="{StaticResource RadioButtonStyle}"
+                                                            Command="{Binding ChangeSection}" 
+                                                            CheckedBgBrush="{ThemeResource AccentLightBrush}"
+                                                            CommandParameter="History">
+                            <customControls:AdvancedRadioButton.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Clock" />
+                                    <TextBlock Text="{Binding CommonResources.HistoryLabel, Source={StaticResource LocalizedStrings}}" Margin="18,0,0,0" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </customControls:AdvancedRadioButton.Content>
+                        </customControls:AdvancedRadioButton>
+
+                        <customControls:AdvancedRadioButton Grid.Row="5" GroupName="Tools" HorizontalAlignment="Stretch" Background="Transparent"
+                                                            IsChecked="{Binding SectionType, Mode=TwoWay, Converter={StaticResource SectionTypeToBooleanConverter}, ConverterParameter='Account'}"
+                                                            Style="{StaticResource RadioButtonStyle}"
+                                                            CheckedBgBrush="{ThemeResource AccentLightBrush}"
+                                                            Command="{Binding ChangeSection}" 
+                                                            CommandParameter="Account">
+                            <customControls:AdvancedRadioButton.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="People"/>
+                                    <TextBlock Text="{Binding CommonResources.AccountLabel, Source={StaticResource LocalizedStrings}}" Margin="18,0,0,0" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </customControls:AdvancedRadioButton.Content>
+                        </customControls:AdvancedRadioButton>
+
+                        <customControls:AdvancedRadioButton Grid.Row="6" GroupName="Tools" HorizontalAlignment="Stretch" Background="Transparent" BorderBrush="{ThemeResource AccentLightBrush}" BorderThickness="0,1,0,0"
+                                                            IsChecked="{Binding SectionType, Mode=TwoWay, Converter={StaticResource SectionTypeToBooleanConverter}, ConverterParameter='Settings'}"
+                                                            Style="{StaticResource RadioButtonStyle}"
+                                                            CheckedBgBrush="{ThemeResource AccentLightBrush}"
+                                                            Command="{Binding ChangeSection}" 
+                                                            CommandParameter="Settings">
+                            <customControls:AdvancedRadioButton.Content>
+                                <StackPanel Orientation="Horizontal">
+                                    <SymbolIcon Symbol="Setting"/>
+                                    <TextBlock Text="{Binding CommonResources.SettingsLabel, Source={StaticResource LocalizedStrings}}" Margin="18,0,0,0" VerticalAlignment="Center"/>
+                                </StackPanel>
+                            </customControls:AdvancedRadioButton.Content>
+                        </customControls:AdvancedRadioButton>
+                    </Grid>
+                </SplitView.Pane>
+
+                <Grid Background="{ThemeResource AccentDarkBrush}">
+                    <ScrollViewer VerticalContentAlignment="Bottom">
+                        <ScrollViewer.Resources>
+                            <Style TargetType="ScrollBar" BasedOn="{StaticResource CustomScrollBar}"/>
+                        </ScrollViewer.Resources>
+                        <ContentPresenter Content="{Binding CurrentSection}" ContentTemplate="{Binding ViewTemplate}"/>
+                    </ScrollViewer>
+                </Grid>
+            </SplitView>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

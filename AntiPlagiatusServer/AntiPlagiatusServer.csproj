@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <StartupObject>AntiPlagiatusServer.Program</StartupObject>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20200313220013_AntiPlagiatusServer.Data.PlagiatusDbContext.cs" />
+    <Compile Remove="Migrations\20200313220013_AntiPlagiatusServer.Data.PlagiatusDbContext.Designer.cs" />
+    <Compile Remove="Migrations\20200406030623_PlagiatusMig.cs" />
+    <Compile Remove="Migrations\20200406030623_PlagiatusMig.Designer.cs" />
+    <Compile Remove="Migrations\20200406031338_PlagiatusMig.cs" />
+    <Compile Remove="Migrations\20200406031338_PlagiatusMig.Designer.cs" />
+    <Compile Remove="Migrations\20200406031716_Plagiatus1Mig.cs" />
+    <Compile Remove="Migrations\20200406031716_Plagiatus1Mig.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.2.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
+</Project>

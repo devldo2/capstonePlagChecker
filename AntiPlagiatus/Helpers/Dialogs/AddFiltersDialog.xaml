@@ -1,0 +1,194 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="using:AntiPlagiatus.Helpers.Converters"
+    xmlns:local="using:AntiPlagiatus.Helpers.Dialogs">
+
+    <converters:EmptyStringToVisibilityConverter x:Key="EmptyStringToVisibilityConverter"/>
+    <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    
+    <Style TargetType="local:AddFiltersDialog">
+        <Setter Property="Background" Value="{ThemeResource AccentBrush}" />
+        <Setter Property="BorderBrush" Value="{ThemeResource BaseInvertForegroundBrush}" />
+        <Setter Property="Foreground" Value="{ThemeResource BaseInvertForegroundBrush}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="Padding" Value="15" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="local:AddFiltersDialog">
+                    <Grid x:Name="ParentRoot"
+                          Background="{ThemeResource DialogBackgroundBrush}"
+                          HorizontalAlignment="Stretch">
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="PopupStates">
+                                <VisualState x:Name="OpenPopupState">
+                                    <Storyboard>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ParentRoot"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0"
+                                                                    Value="Visible" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                        <DoubleAnimation Storyboard.TargetName="ParentRoot"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         From="0"
+                                                         To="1"
+                                                         Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <PowerEase EasingMode="EaseOut"
+                                                           Power="3" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState
+                                    x:Name="ClosedPopupState">
+                                    <Storyboard>
+                                        <DoubleAnimation Storyboard.TargetName="ParentRoot"
+                                                         Storyboard.TargetProperty="Opacity"
+                                                         From="1"
+                                                         To="0"
+                                                         Duration="0:0:0.4">
+                                            <DoubleAnimation.EasingFunction>
+                                                <PowerEase EasingMode="EaseOut"
+                                                           Power="3" />
+                                            </DoubleAnimation.EasingFunction>
+                                        </DoubleAnimation>
+                                        <ObjectAnimationUsingKeyFrames Storyboard.TargetName="ParentRoot"
+                                                                       Storyboard.TargetProperty="Visibility">
+                                            <DiscreteObjectKeyFrame KeyTime="0:0:0.4"
+                                                                    Value="Collapsed" />
+                                        </ObjectAnimationUsingKeyFrames>
+                                    </Storyboard>
+                                </VisualState>
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+
+                        <Grid HorizontalAlignment="Center"
+                              x:Name="ContentRoot"
+                              VerticalAlignment="Center"
+                              Background="{ThemeResource ControlBackgroundBrush}"
+                              BorderThickness="{TemplateBinding BorderThickness}"
+                              BorderBrush="{ThemeResource AccentLightBrush}"
+                              Width="400"
+                              Padding="20">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <StackPanel Orientation="Horizontal"
+                                        HorizontalAlignment="Center">
+
+                                <FontIcon Glyph="&#xE71C;" FontSize="25" Width="25" Foreground="Black" Height="25" HorizontalAlignment="Center"/>
+
+                                <TextBlock Foreground="Black"
+                                           FontSize="25"
+                                           FontWeight="Light"
+                                           Margin="10,0,0,0"
+                                           HorizontalAlignment="Center"
+                                           TextWrapping="Wrap"
+                                           Text="Add Filters"/>
+                            </StackPanel>
+
+                            <TextBlock HorizontalAlignment="Center"
+                                       Grid.Row="2"
+                                       Foreground="Gray"
+                                       Visibility="{Binding IsFiltersEmpty, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=invert}"
+                                       Margin="0,40,0,40" 
+                                       Text="No filters applied"/>
+
+                            <ListView Grid.Row="2"
+                                      Foreground="{ThemeResource BaseForegroundBrush}"
+                                      Visibility="{Binding IsFiltersEmpty, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource BooleanToVisibilityConverter}}"
+                                      ItemsSource="{Binding FiltersList, RelativeSource={RelativeSource Mode=TemplatedParent}}" 
+                                      Margin="0,10" 
+                                      SelectionMode="None"
+                                      ItemContainerStyle="{StaticResource DefaultListViewItemStyle}"
+                                      HorizontalAlignment="Stretch" 
+                                      HorizontalContentAlignment="Stretch"
+                                      DataContext="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                      x:Name="RulesList">
+                                <ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Text="{Binding FullPath}"
+                                                       TextTrimming="CharacterEllipsis"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Stretch"/>
+                                         
+                                            <Button Grid.Column="1" Width="50"
+                                                    Background="{ThemeResource AccentBrush}"
+                                                    Style="{StaticResource DefaultButtonStyle}"
+                                                    Height="37"
+                                                    Margin="1"
+                                                    Command="{Binding DataContext.DeleteFilterCommand, ElementName=RulesList}"
+                                                    CommandParameter="{Binding }">
+                                                <SymbolIcon Symbol="Cancel"/>
+                                            </Button>
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>
+                            </ListView>
+
+                            <TextBox HorizontalAlignment="Stretch"
+                                     Grid.Row="3"
+                                     Foreground="Black"
+                                     FontSize="15"
+                                     FontWeight="SemiBold"
+                                     Margin="0" 
+                                     Background="White"
+                                     Style="{ThemeResource DefaultTextBoxStyle}"
+                                     Text="{Binding FilterToAdd, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=TwoWay}"/>
+
+                            <TextBlock HorizontalAlignment="Center"
+                                       Grid.Row="4"
+                                       Margin="0,10,0,0" 
+                                       FontFamily="SegoeUI"
+                                       FontSize="12"
+                                       Foreground="Red"
+                                       Visibility="{Binding VelidationMessage, RelativeSource={RelativeSource Mode=TemplatedParent}, Converter={StaticResource EmptyStringToVisibilityConverter}, ConverterParameter=invert}"
+                                       Text="{Binding VelidationMessage, RelativeSource={RelativeSource Mode=TemplatedParent}, Mode=TwoWay}"/>
+
+                            <Button Grid.Row="5"
+                                    Height="37"
+                                    Background="{ThemeResource AccentBrush}"
+                                    Style="{StaticResource DefaultButtonStyle}"
+                                    HorizontalAlignment="Stretch"
+                                    Margin="0,10,0,0" 
+                                    HorizontalContentAlignment="Center"
+                                    Command="{Binding AddFilterCommand, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                    Content="Add filter"/>
+
+                            <Button Grid.Row="6"
+                                    Style="{StaticResource TransparentbuttonStyle}"
+                                    BorderThickness="0"
+                                    Padding="0"
+                                    Height="20"
+                                    Margin="0,10,0,0"
+                                    Foreground="Black"
+                                    FontWeight="SemiBold"
+                                    HorizontalAlignment="Center"
+                                    HorizontalContentAlignment="Center"
+                                    Command="{Binding CloseCommand, RelativeSource={RelativeSource Mode=TemplatedParent}}"
+                                    Content="Close"/>
+                            
+                        </Grid>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+</ResourceDictionary>

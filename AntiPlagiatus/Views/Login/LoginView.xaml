@@ -1,0 +1,190 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+                    xmlns:core="using:Microsoft.Xaml.Interactions.Core">
+    <DataTemplate x:Key="ViewTemplate">
+        <Grid Background="{ThemeResource AccountBackgroundBrush}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>
+                <RowDefinition Height="530"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <ContentPresenter Grid.Row="1" Content="{Binding }" ContentTemplate="{StaticResource UnloggedUserTemplate}">
+                <interactivity:Interaction.Behaviors>
+                    <core:DataTriggerBehavior Binding="{Binding IsLogged}" Value="True">
+                        <core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource LoggedUserTemplate}" />
+                    </core:DataTriggerBehavior>
+                    <core:DataTriggerBehavior Binding="{Binding IsLogged}" Value="False">
+                        <core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource UnloggedUserTemplate}" />
+                    </core:DataTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+            </ContentPresenter>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="RegistrationTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="170"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Ellipse Grid.Row="0" HorizontalAlignment="Center" 
+                     VerticalAlignment="Center" Width="140" Height="140" 
+                     StrokeThickness="6" Stroke="White"/>
+            <FontIcon Grid.Row="0" Glyph="&#xE8FA;" HorizontalAlignment="Center"
+                      VerticalAlignment="Center" FontSize="85" 
+                      Foreground="White"/>
+
+            <TextBox Width="400" 
+                     Height="40"
+                     IsSpellCheckEnabled="False" 
+                     Padding="8"
+                     Style="{StaticResource LoginPageTextBox}"
+                     Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     HorizontalAlignment="Center" 
+                     VerticalContentAlignment="Center" 
+                     Background="White" 
+                     BorderBrush="{StaticResource PaneBackgroundBrush}"
+                     Grid.Row="1" 
+                     PlaceholderText="Enter your login (e.g., myemail@gmail.com)"/>
+            <PasswordBox Width="400" 
+                         Height="40"  
+                         Style="{StaticResource LoginPagePasswordBox}"
+                         Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         HorizontalAlignment="Center" 
+                         VerticalContentAlignment="Center" 
+                         Background="White" 
+                         BorderBrush="{StaticResource PaneBackgroundBrush}"
+                         Grid.Row="2" 
+                         PlaceholderText="Enter your password"/>
+            <PasswordBox Width="400"
+                         Height="40" 
+                         Password="{Binding ConfirmedPassword, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         Style="{StaticResource LoginPagePasswordBox}"
+                         HorizontalAlignment="Center" VerticalContentAlignment="Center" 
+                         Background="White"
+                         BorderBrush="{StaticResource PaneBackgroundBrush}"
+                         Grid.Row="3" PlaceholderText="Please, repeat your password"/>
+            <StackPanel Grid.Row="4" Margin="0,20,0,0"
+                        Orientation="Vertical" HorizontalAlignment="Center">
+                <Button Width="400" Content="Register" 
+                        Command="{Binding RegisterCommand}" 
+                        HorizontalAlignment="Center" 
+                        Background="{ThemeResource AccentBrush}"
+                        Style="{StaticResource DefaultButtonStyle}"/>
+                <Button Width="400" Margin="0,10" Content="LOGIN" 
+                        Foreground="White"
+                        Command="{Binding SwitchToRegisterCommand}" 
+                        Style="{StaticResource DefaultButtonStyle}"
+                        HorizontalAlignment="Center" 
+                        Background="Transparent"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="LoginingTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="170"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <Ellipse Grid.Row="0" HorizontalAlignment="Center" 
+                     VerticalAlignment="Center" Width="140" Height="140" 
+                     StrokeThickness="6" Stroke="White"/>
+            <FontIcon Grid.Row="0" Glyph="&#xE8F8;" HorizontalAlignment="Center"
+                      VerticalAlignment="Center" FontSize="85" 
+                      Foreground="White" />
+
+            <TextBox Width="400" Height="40" IsSpellCheckEnabled="False"
+                     Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                     Style="{StaticResource LoginPageTextBox}"
+                     HorizontalAlignment="Center" VerticalContentAlignment="Center" 
+                     Background="White"
+                     BorderBrush="{StaticResource PaneBackgroundBrush}"
+                     Grid.Row="1" PlaceholderText="Enter your login"/>
+            <PasswordBox Width="400" Height="40" 
+                         Style="{StaticResource LoginPagePasswordBox}"
+                         Password="{Binding Password, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                         HorizontalAlignment="Center" VerticalContentAlignment="Center" 
+                         Background="White"
+                         BorderBrush="{StaticResource PaneBackgroundBrush}" 
+                         Grid.Row="2" PlaceholderText="Enter your password"/>
+            <StackPanel Grid.Row="3" Margin="0,20,0,0" Orientation="Vertical" 
+                        HorizontalAlignment="Center">
+                <Button Width="400" Content="Log In" 
+                        Command="{Binding LoginLogoutCommand}"
+                        HorizontalAlignment="Center" 
+                        Style="{StaticResource DefaultButtonStyle}"
+                        Background="{ThemeResource AccentBrush}"/>
+                <Button Width="400" Margin="0,10" Content="REGISTER AN ACCOUNT" 
+                        Command="{Binding SwitchToRegisterCommand}"
+                        HorizontalAlignment="Center" 
+                        Style="{StaticResource DefaultButtonStyle}"
+                        Background="Transparent" 
+                        Foreground="White"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="UnloggedUserTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="80"/>
+            </Grid.RowDefinitions>
+            <ContentPresenter x:Name="SwitchCP" Content="{Binding }" ContentTemplate="{StaticResource LoginingTemplate}">
+                <interactivity:Interaction.Behaviors>
+                    <core:DataTriggerBehavior Binding="{Binding IsRegistration}" Value="True">
+                        <core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource RegistrationTemplate}" />
+                    </core:DataTriggerBehavior>
+                    <core:DataTriggerBehavior Binding="{Binding IsRegistration}" Value="False">
+                        <core:ChangePropertyAction PropertyName="ContentTemplate" Value="{StaticResource LoginingTemplate}" />
+                    </core:DataTriggerBehavior>
+                </interactivity:Interaction.Behaviors>
+            </ContentPresenter>
+
+            <TextBlock Grid.Row="1" Margin="0,0,30,0" FontSize="16" TextAlignment="Center" 
+                       TextWrapping="WrapWholeWords"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Bottom" Foreground="#ff7d7d" Text="{Binding MessageError}"/>
+        </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="LoggedUserTemplate">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.3*"/>
+                <RowDefinition Height="170"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Ellipse Grid.Row="1" HorizontalAlignment="Center" 
+                     VerticalAlignment="Center" 
+                     Width="140" Height="140" 
+                     StrokeThickness="6" Stroke="White"/>
+            <FontIcon Grid.Row="1" Glyph="&#xE77B;"
+                      HorizontalAlignment="Center"
+                      VerticalAlignment="Center" FontSize="85" 
+                      Foreground="White" />
+
+            <TextBlock Text="YOU'ARE LOGGED IN SYSTEM"
+                       FontSize="16" 
+                       TextAlignment="Center"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       Foreground="White" Grid.Row="2"/>
+
+            <Button Grid.Row="3" Width="400" Content="Log Out" 
+                    Command="{Binding LoginLogoutCommand}" 
+                    Background="{ThemeResource AccentBrush}"
+                    Style="{StaticResource DefaultButtonStyle}"
+                    HorizontalAlignment="Center"/>
+        </Grid>
+    </DataTemplate>
+</ResourceDictionary>

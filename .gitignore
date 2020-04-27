@@ -1,0 +1,17 @@
+.vs/
+syntax: glob
+*.user
+bin/
+obj/
+*_ReSharper*
+*.suo
+*.dotCover
+packages/
+*.dll
+*.orig
+[Pp]ackages/
+log/
+*.vssettings
+*.orig
+Files/
+BundleArtifacts/

@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ChooseOptionText" xml:space="preserve">
+    <value>请选择一个选项。</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>关闭</value>
+  </data>
+  <data name="CompressFile" xml:space="preserve">
+    <value>压缩文件</value>
+  </data>
+  <data name="Compressing" xml:space="preserve">
+    <value>压缩PDF文件</value>
+  </data>
+  <data name="ConnectionWarningHeader" xml:space="preserve">
+    <value>出了问题</value>
+  </data>
+  <data name="ContactUsLabel" xml:space="preserve">
+    <value>联系我们</value>
+  </data>
+  <data name="ConversionError" xml:space="preserve">
+    <value>导出错误</value>
+  </data>
+  <data name="Converting" xml:space="preserve">
+    <value>转换</value>
+  </data>
+  <data name="DownloadedFileDamaged" xml:space="preserve">
+    <value>该文件已损坏</value>
+  </data>
+  <data name="DownloadFile" xml:space="preserve">
+    <value>正在上传档案</value>
+  </data>
+  <data name="FeedbackText" xml:space="preserve">
+    <value>你的看法对我们来说非常重要</value>
+  </data>
+  <data name="FileDamagedError" xml:space="preserve">
+    <value>该文件已损坏。</value>
+  </data>
+  <data name="FileNullError" xml:space="preserve">
+    <value>请选择一个文件。</value>
+  </data>
+  <data name="GreetingsOptionText" xml:space="preserve">
+    <value>欢迎</value>
+  </data>
+  <data name="InternalErrorHeader" xml:space="preserve">
+    <value>内部错误</value>
+  </data>
+  <data name="InternalErrorText" xml:space="preserve">
+    <value>错误详情：</value>
+  </data>
+  <data name="Later" xml:space="preserve">
+    <value>后来</value>
+  </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Protect" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ProtectFile" xml:space="preserve">
+    <value>保护</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>评估</value>
+  </data>
+  <data name="RateMessagePart1" xml:space="preserve">
+    <value>请评价该应用程序</value>
+  </data>
+  <data name="RateMessagePart2" xml:space="preserve">
+    <value>谢谢你的时间</value>
+  </data>
+  <data name="Retry" xml:space="preserve">
+    <value>再一次</value>
+  </data>
+  <data name="Share" xml:space="preserve">
+    <value>分享这个</value>
+  </data>
+  <data name="UlockFile" xml:space="preserve">
+    <value>解锁受保护的文件</value>
+  </data>
+  <data name="Unlock" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>下载文件</value>
+  </data>
+  <data name="WaitLabel" xml:space="preserve">
+    <value>请等一下</value>
+  </data>
+  <data name="WelcomeOptionText" xml:space="preserve">
+    <value>欢迎来到 PDF Conversion Tool</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="EmptyPassword" xml:space="preserve">
+    <value>请输入密码</value>
+  </data>
+  <data name="NewPasswordLebel" xml:space="preserve">
+    <value>指定要为此文件设置的新密码。</value>
+  </data>
+  <data name="UnlockFile" xml:space="preserve">
+    <value>发布</value>
+  </data>
+  <data name="UnlockFileWorning" xml:space="preserve">
+    <value>要解锁受保护的文件，您必须先输入文件密码</value>
+  </data>
+  <data name="FileSaved" xml:space="preserve">
+    <value>该文件已保存</value>
+  </data>
+  <data name="PasswordLebel" xml:space="preserve">
+    <value>请输入您的密码</value>
+  </data>
+  <data name="ProtectedDamagedFile" xml:space="preserve">
+    <value>该文件已被保护或损坏</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>结果</value>
+  </data>
+  <data name="WrongPasswordUnlock" xml:space="preserve">
+    <value>密码不正确</value>
+  </data>
+  <data name="ConnectionWarningText" xml:space="preserve">
+    <value>我们发现与网络的连接有问题。 检查您的Internet连接并重复以下步骤：
+
+- 检查网络电缆，调制解调器和路由器。
+- 连接到Wi-Fi网络。
+- 在Windows中执行网络诊断。
+
+如果问题仍然存在，请与您的网络管理员联系。</value>
+  </data>
+  <data name="InternalErrorText2" xml:space="preserve">
+    <value>联系我们以了解有关此问题的更多信息。 如果可能，请提供我们在发生错误之前采取的步骤。</value>
+  </data>
+  <data name="ProccesUrlError" xml:space="preserve">
+    <value>无法获取当前作业的进程URL</value>
+  </data>
+  <data name="ConvertFile" xml:space="preserve">
+    <value>转换文件</value>
+  </data>
+  <data name="ConvertFileToPdf" xml:space="preserve">
+    <value>转换为PDF</value>
+  </data>
+  <data name="ConvertPdfToFile" xml:space="preserve">
+    <value>将PDF转换为文件</value>
+  </data>
+  <data name="Convert" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConvertFileToPdfText" xml:space="preserve">
+    <value>可以转换为PDF文件的格式：</value>
+  </data>
+  <data name="FileToPdfFormats" xml:space="preserve">
+    <value>- cad : dwg, dxf 
+- document : abw, djvu, doc, docm, docx, html,lwp, md, odt, pages, pages.zip, pdf, rst, rtf, sdw, tex, txt, wpd, wps  
+- ebooks : azw, azw3, azw4, cbc, cbr, cbz, chm, epub, fb2, htm, htmlz, lit, lrf, mobi, pdb, pml, prc, rb, snb, tcr, txtz 
+- image : 3fr, arw, bmp, cr2, crw, dcr, dng, erf, gif, ico, jpeg, jpg, mos, mrw, nef, odd, orf, pef, png, ppm, psd, raf, raw, tif, tiff, webp, x3f, xcf, xps
+- presentation : dps,key,key.zip, odp, pps, ppsx, ppt, pptm, pptx, sda 
+- spreadsheet : csv, et, numbers, numbers.zip, ods, sdc, xls, xlsm, xlsx
+- vector : ai, cdr, cgm, emf, eps, ps, sk, sk1, svg, svgz, vsd, wmf </value>
+  </data>
+  <data name="ConvertFileToPdfTextTwo" xml:space="preserve">
+    <value>请选择一个文件，转换开始</value>
+  </data>
+  <data name="SelectFile" xml:space="preserve">
+    <value />
+  </data>
+  <data name="ConvertPdfToFileText" xml:space="preserve">
+    <value>PDF文件可以转换成以下格式：</value>
+  </data>
+  <data name="ConvertPdfToFileTextTwo" xml:space="preserve">
+    <value>请选择PDF文件，转换开始</value>
+  </data>
+  <data name="PdfToFileFormats" xml:space="preserve">
+    <value>- cad : dxf 
+- document : doc, docx, html, odt, pdf, rtf, txt 
+- ebooks : azw3, epub, lrf, mobi, oeb, pdb 
+- image : bmp, gif, ico, jpg, odd, png, psd, tiff, webp 
+- vector : emf, eps, ps, svg, wmf</value>
+  </data>
+  <data name="ConvertPdfToFileFormat" xml:space="preserve">
+    <value>选择格式：</value>
+  </data>
+  <data name="SelectFormatWarning" xml:space="preserve">
+    <value>您必须选择输出文件格式</value>
+  </data>
+  <data name="MoreApps" xml:space="preserve">
+    <value>更多</value>
+  </data>
+  <data name="SelectCompressFile" xml:space="preserve">
+    <value />
+  </data>
+  <data name="SelectUnlockFile" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FileLocaton" xml:space="preserve">
+    <value />
+  </data>
+  <data name="FewClicks" xml:space="preserve">
+    <value />
+  </data>
+</root>
